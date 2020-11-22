@@ -16,7 +16,13 @@ export default {
     ...mapActions("store", ["getItems"]),
   },
   async created() {
-    const res = await this.$axios.get('https://todosapp-api.herokuapp.com/api/items/');
+    let url;
+    if(process.env.NODE_ENV === 'production') {
+      url = 'https://todosapp-api.herokuapp.com/api/items/';
+    } else {
+      url = 'http://localhost:5000/api/items/';
+    }
+    const res = await this.$axios.get(url);
     const arr = res.data.body;
     const items = {};
     arr.forEach(e => {
@@ -33,6 +39,6 @@ export default {
   components: {
     "todo-item": require("../components/TodoItem.vue").default,
     "create-edit": require("../components/AddItem.vue").default,
-  },
+  }
 };
 </script>

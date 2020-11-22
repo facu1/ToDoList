@@ -48,7 +48,13 @@ export default {
       this.newItem.edit = false;
     },
     async update(change){
-      await this.$axios.put(`https://todosapp-api.herokuapp.com/api/items/${change.id}`, change.update)
+      let url;
+      if(process.env.NODE_ENV === 'production') {
+        url = 'https://todosapp-api.herokuapp.com/api/items/';
+      } else {
+        url = 'http://localhost:5000/api/items/';
+      }
+      await this.$axios.put(`${url}${change.id}`, change.update)
       this.updateItem(change)
       this.newItem.edit = false;
       this.newItem.text = this.item.text
@@ -63,7 +69,17 @@ export default {
         this.newItem.text = this.item.text;
       }
     },
-    async removeItem(id){
+    async remove(id){
+      let url;
+      if(process.env.NODE_ENV === 'production') {
+        url = 'https://todosapp-api.herokuapp.com/api/items/';
+      } else {
+        url = 'http://localhost:5000/api/items/';
+      }
+      await this.$axios.delete(`${url}${id}`);
+      this.deleteItem(id);
+    },
+    removeItem(id){
       if(!this.item.state){
         this.$q.dialog({
           title: 'Confirmar',
@@ -71,16 +87,12 @@ export default {
           cancel: true,
           persistent: true
         }).onOk(async() => {
-          const url = 'https://todosapp-api.herokuapp.com/api/items/';
-          await this.$axios.delete(`${url}${id}`);
-          this.deleteItem(id);
+          this.remove(id)
         })
       } else {
-        const url = 'https://todosapp-api.herokuapp.com/api/items/';
-        await this.$axios.delete(`${url}${id}`);
-        this.deleteItem(id);
+        this.remove(id)
       }
-    },
+    }
   }
 };
 </script>

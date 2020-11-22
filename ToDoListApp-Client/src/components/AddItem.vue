@@ -39,7 +39,13 @@ export default {
           text: this.text.trim(),
           state: false
         }
-        const res = await this.$axios.post('https://todosapp-api.herokuapp.com/api/items/', item);
+        let url;
+        if(process.env.NODE_ENV === 'production') {
+          url = 'https://todosapp-api.herokuapp.com/api/items/';
+        } else {
+          url = 'http://localhost:5000/api/items/';
+        }
+        const res = await this.$axios.post(url, item);
         const id = res.data.body;
         const newItem = {
           id: id,
@@ -48,7 +54,7 @@ export default {
         this.createItem(newItem);
       }
       this.text = ''
-    },
-  },
+    }
+  }
 };
 </script>

@@ -13,12 +13,6 @@ app.use(cors());
 app.use(bodyParser.json());
 router(app);
 
-// app.use(express.static(__dirname + '/public/'));
-// app.use(express.static(__dirname + '/../client/dist/spa/'));
-
-// app.get(/.*/, (req, res) => res.sendFile(__dirname + '/public/index.html'));
-// app.get(/.*/, (req, res) => res.sendFile(__dirname + '/../client/dist/spa/index.html'));
-
 server.listen(config.port, () => {
   console.log(`server started on host ${config.host} on port ${config.port}`)
 });
