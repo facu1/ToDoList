@@ -1,34 +1,48 @@
 # NodeJS App (todolistapp-api)
 
-A simple todo list Api app built with MongoDB, Express and Node
+API de la aplicacion to do
 
-## Requests
+## Uso
 
 Get - todosapp.herokuapp.com/api/items
+
 Post - todosapp.herokuapp.com/api/items
-  {
-    "text": "something"
-    "state": true or false
-  }
+
+JSON
+{
+  
+  "text": "something"
+  
+  "state": true or false
+  
+}
+
 Put - todosapp.herokuapp.com/api/items/:id
-  {
+
+JSON
+{
+
     "text": "something"
+
     or
+
     "state": true or false
-  }
+
+}
+
 Delete - todosapp.herokuapp.com/api/items/:id
 
-## Install the dependencies
+## Instalar las dependencias
 ```bash
 npm i
 ```
 
-### Start the app in development mode
+### Inicie la aplicación en modo de desarrollo (recarga de código activo, informe de errores, etc.)
 ```bash
 nodemon server.js
 ```
 
-### Start the app for production
+### Cree la aplicación para producción
 ```bash
 node server.js
 ```
