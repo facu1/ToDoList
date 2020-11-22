@@ -19,6 +19,6 @@ https://todosapp-api.herokuapp.com/api/items
 
 Esto es para que se inicie la api en heroku y ya este lista para su uso.
 
-Luego vaya al siguiente link para ya utilizar la aplicacion de cliente normalmente.
+Luego vaya al siguiente link para ya utilizar la aplicación de cliente normalmente.
 
 https://todosapp-client.herokuapp.com/
