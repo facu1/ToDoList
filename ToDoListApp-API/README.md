@@ -27,11 +27,11 @@ JSON
 
 {
 
-    "text": "something"
+  "text": "something"
+  
+  or
 
-    or
-
-    "state": true or false
+  "state": true or false
 
 }
 
