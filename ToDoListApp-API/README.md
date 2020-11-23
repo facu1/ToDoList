@@ -3,7 +3,7 @@
 API de la aplicacion to do
 
 
-## Requests	## Uso
+## Uso
 
 
 Get - todosapp.herokuapp.com/api/items
