@@ -3,7 +3,7 @@
 API de la aplicacion to do
 
 
-## Requests	## Uso
+## Uso
 
 
 Get - todosapp.herokuapp.com/api/items
@@ -27,11 +27,11 @@ JSON
 
 {
 
-    "text": "something"
+  "text": "something"
+  
+  or
 
-    or
-
-    "state": true or false
+  "state": true or false
 
 }
 
