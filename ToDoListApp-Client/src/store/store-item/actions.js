@@ -1,11 +1,8 @@
 import axios from 'axios'
+
+const url = process.env.URL
+
 export async function getItems({ commit }) {
-  let url;
-  if (process.env.NODE_ENV === 'production') {
-    url = 'https://todosapp-api.herokuapp.com/api/items/';
-  } else {
-    url = 'http://localhost:5000/api/items/';
-  }
   const res = await axios.get(url);
   const arr = res.data.body;
   const items = {};
@@ -23,12 +20,6 @@ export async function createItem({ commit }, text) {
     text: text,
     state: false
   }
-  let url;
-  if (process.env.NODE_ENV === 'production') {
-    url = 'https://todosapp-api.herokuapp.com/api/items/';
-  } else {
-    url = 'http://localhost:5000/api/items/';
-  }
   const res = await axios.post(url, item);
   const id = res.data.body;
   const newItem = {
@@ -39,23 +30,11 @@ export async function createItem({ commit }, text) {
 }
 
 export async function updateItem({ commit }, change) {
-  let url;
-  if (process.env.NODE_ENV === 'production') {
-    url = 'https://todosapp-api.herokuapp.com/api/items/';
-  } else {
-    url = 'http://localhost:5000/api/items/';
-  }
-  await axios.put(`${url}${change.id}`, change.update)
+  await axios.put(`${url}/${change.id}`, change.update)
   commit('updateItem', change)
 }
 
 export async function deleteItem({ commit }, id) {
-  let url;
-  if (process.env.NODE_ENV === "production") {
-    url = "https://todosapp-api.herokuapp.com/api/items/";
-  } else {
-    url = "http://localhost:5000/api/items/";
-  }
-  await axios.delete(`${url}${id}`);
+  await axios.delete(`${url}/${id}`);
   commit('deleteItem', id)
 }

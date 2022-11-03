@@ -6,7 +6,7 @@
           <q-tabs>
             <q-route-tab class="icon-home-error"
               :to="{path: '/'}"
-              icon="img:https://image.flaticon.com/icons/png/512/1567/1567073.png"
+              icon="img:todolistIcon.png"
               replace
             />
           </q-tabs>
