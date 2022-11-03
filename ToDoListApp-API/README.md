@@ -6,11 +6,11 @@ API de la aplicacion to do
 ## Uso
 
 
-Get - todosapp.herokuapp.com/api/items
+Get - http://localhost:5000/api/items
 
-Post - todosapp.herokuapp.com/api/items
+Post - http://localhost:5000/api/items
 
-JSON
+BODY
 
 {
 
@@ -20,10 +20,10 @@ JSON
 
 }
 
-Put - todosapp.herokuapp.com/api/items/:id
+Put - http://localhost:5000/api/items/:id
 
 
-JSON
+BODY
 
 {
 
@@ -35,7 +35,7 @@ JSON
 
 }
 
-Delete - todosapp.herokuapp.com/api/items/:id
+Delete - http://localhost:5000/api/items/:id
 
 
 ## Instalar las dependencias
